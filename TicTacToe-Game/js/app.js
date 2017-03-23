@@ -18,14 +18,14 @@ var alternateCounter = 0;
 startButton.onclick = function () {
   start.style.display = 'none';
   board.style.display = 'block';
-//Sets active class to randomly selected starting piece  
+//Sets active class to randomly selected starting piece
   if (alternateCounter % 2 === 0 || alternateCounter === 0) {
       player1.classList.add('active');
       player2.classList.remove('active');
   } else {
       player2.classList.add('active');
       player1.classList.remove('active');
-  } 
+  }
 };
 
 //Show start when newGameButton is clicked
@@ -35,7 +35,7 @@ newGameButton.onclick = function () {
     if (boxes[i].classList.contains('box-filled-1')) {
       boxes[i].classList.remove('box-filled-1');
       boxes[i].style.backgroundImage = 'none';
-      
+
     } else if (boxes[i].classList.contains('box-filled-2')) {
       boxes[i].classList.remove('box-filled-2');
       boxes[i].style.backgroundImage = 'none';
@@ -57,16 +57,16 @@ var boxes = document.getElementsByClassName('boxes')[0].children;
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].onmouseover = function () {
     if (alternateCounter % 2 === 0 && !(this.classList.contains('box-filled-1')) && !(this.classList.contains('box-filled-2'))) {
-    this.style.backgroundImage = 'url(../img/o.svg)';
+    this.style.backgroundImage = 'url(../TicTacToe-Game/img/o.svg)';
       }
     else if (alternateCounter !== 0 && !(this.classList.contains('box-filled-2')) && !(this.classList.contains('box-filled-1')) ) {
-      this.style.backgroundImage = 'url(../img/x.svg)';
+      this.style.backgroundImage = 'url(../TicTacToe-Game/img/x.svg)';
     }
   };
   boxes[i].onmouseout = function () {
     if (!(this.classList.contains('box-filled-1')) && !(this.classList.contains('box-filled-2')) ) {
       this.style.backgroundImage = 'none';
-    }  
+    }
   };
   boxes[i].onclick = function () {
     if (this.classList.contains('box-filled-1') || this.classList.contains('box-filled-2')) {
@@ -82,9 +82,9 @@ for (var i = 0; i < boxes.length; i++) {
         player2.classList.remove('active');
         alternateCounter++;
     }
-    
+
     winnerCheck();
-  }; 
+  };
 };
 
 function winnerCheck() {
@@ -99,7 +99,7 @@ function winnerCheck() {
   var box9 = document.getElementsByClassName('box')[8];
   var message = document.getElementsByClassName('message')[0];
   message.innerHTML = 'Winner';
-  
+
   if (box1.classList.contains('box-filled-1') && box4.classList.contains('box-filled-1') && box7.classList.contains('box-filled-1') || box2.classList.contains('box-filled-1') && box5.classList.contains('box-filled-1') && box8.classList.contains('box-filled-1') || box3.classList.contains('box-filled-1') && box6.classList.contains('box-filled-1') && box9.classList.contains('box-filled-1') || box1.classList.contains('box-filled-1') && box2.classList.contains('box-filled-1') && box3.classList.contains('box-filled-1') || box4.classList.contains('box-filled-1') && box5.classList.contains('box-filled-1') && box6.classList.contains('box-filled-1') || box7.classList.contains('box-filled-1') && box8.classList.contains('box-filled-1') && box9.classList.contains('box-filled-1') || box1.classList.contains('box-filled-1') && box5.classList.contains('box-filled-1') && box9.classList.contains('box-filled-1') || box3.classList.contains('box-filled-1') && box5.classList.contains('box-filled-1') && box7.classList.contains('box-filled-1')) {
     message.innerHTML = 'Winner';
     board.style.display = 'none';
@@ -124,6 +124,3 @@ function winnerCheck() {
   }
 };
 }());
-
-
-
